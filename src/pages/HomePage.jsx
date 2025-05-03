@@ -6,7 +6,6 @@ import {
   Typography,
   Grid,
   CircularProgress,
-  Button,
 } from "@mui/material";
 import api from "../services/axios";
 import SearchFlights from "../components/SearchFlights";
