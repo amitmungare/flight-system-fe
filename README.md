@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# ✈️ Flight Booking System - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the **Flight Booking System**. It is built using **React** and provides a user interface for searching, selecting flights, and managing bookings.
 
-## Available Scripts
+## 📌 Features
 
-In the project directory, you can run:
+* Flight search
+* Flight details view
+* Booking management
+* User authentication
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **React**
+* **React Router** (for navigation)
+* **Axios** (for making API requests)
+* **MUI UI** (for the UI library)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Folder Structure
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+flight-system-fe/
 
-### `npm run build`
+├── public/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+├── src/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+│     ├── components/       # Reusable UI components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+│     ├── routes/           # Application routes
 
-### `npm run eject`
+│     ├── services/         # API service calls
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+│     ├── utils/            # Utility functions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+│     ├── App.js            # Root component
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+│     └── index.js          # Entry point
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+├── .env                # Environment variables
 
-## Learn More
+└── package.json
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⚙️ Installation & Setup
 
-### Code Splitting
+### 1. Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* [Node.js](https://nodejs.org/en/) (version >= 12)
+* [npm](https://www.npmjs.com/) (version >= 6)
 
-### Analyzing the Bundle Size
+### 2. Clone the Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+git clone https://github.com/amitmungare/flight-system-fe.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+cd flight-system-fe
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. Install Dependencies
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+npm install
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 4. Configure Environment Variables
+
+Create a `.env` file in the root directory with the following content:
+
+
+REACT_APP_API_BASE_URL=http://localhost:5050/api/v1
+
+
+Replace `REACT_APP_API_BASE_URL` with the actual URL of your backend API.
+
+### 5. Run the Application
+
+
+npm start
+
+
+The application will be running at: `http://localhost:3000`
+
+## 🔗 API Proxy
+
+The application uses a proxy to communicate with the backend server. Ensure your backend server is running at the specified `REACT_APP_API_BASE_URL`.
+
+
+## 🚀 Deployment
+
+
+npm run build
+
+
+This will create an optimized production build in the `build` directory. You can then deploy the contents of this directory to a web server.
+
+## 🧑‍💻 Author
+
+Amit Mungare
+
+* GitHub: [@amitmungare](https://github.com/amitmungare)
+
