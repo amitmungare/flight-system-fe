@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import FlightCard from "../components/FlightCard"; // renamed from BookingCard
+import FlightCard from "../components/FlightCard";
 import {
   Container,
   Typography,
@@ -31,8 +31,8 @@ const HomePage = () => {
   });
 
   const handleSearchResults = (params) => {
-    setSearchParams(params); // Update search parameters
-    refetch(); // Trigger the API call with new parameters
+    setSearchParams(params);
+    refetch();
   };
 
   return (

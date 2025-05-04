@@ -65,7 +65,7 @@ const MyBookingsPage = () => {
                   color="primary"
                   fullWidth
                   sx={{ mt: 2 }}
-                  onClick={() => handleOpen(booking)} // Open modal with booking details
+                  onClick={() => handleOpen(booking)}
                 >
                   View Details
                 </Button>
@@ -74,8 +74,6 @@ const MyBookingsPage = () => {
           </Grid>
         ))}
       </Grid>
-
-      {/* Modal to show booking details */}
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           {selectedBooking && (
@@ -124,7 +122,6 @@ const MyBookingsPage = () => {
   );
 };
 
-// Modal style
 const modalStyle = {
   position: "absolute",
   top: "50%",
