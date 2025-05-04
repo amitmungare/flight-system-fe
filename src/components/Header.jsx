@@ -10,6 +10,11 @@ const Header = () => {
   return (
     <AppBar position="sticky">
       <Toolbar>
+        <img
+          src="/icon.png"
+          alt="Logo"
+          style={{ width: 50, height: 50, marginRight: 16 }}
+        />
         <Typography
           variant="h6"
           sx={{ flexGrow: 1, cursor: "pointer" }}
