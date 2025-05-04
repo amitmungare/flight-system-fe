@@ -25,7 +25,7 @@ const EditBookingPage = () => {
   const [seats, setSeats] = useState([]);
   
 
-  const { data, isLoading, error } = useQuery({
+  const { isLoading, error } = useQuery({
     queryKey: ["booking", id],
     queryFn: async () => {
       const res = await api.get(`/bookings/${id}`);
