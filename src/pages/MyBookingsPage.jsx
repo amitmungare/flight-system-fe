@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Container, Grid, Card, CardContent, Typography, Button, CircularProgress, Modal, Box } from "@mui/material";
+import { Container, Grid, Card, CardContent, Typography, Button, CircularProgress, Modal, Box, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import api from "../services/axios"; // your axios instance
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 // Fetch user bookings
 const fetchUserBookings = async () => {
@@ -14,6 +15,9 @@ const fetchUserBookings = async () => {
 };
 
 const MyBookingsPage = () => {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["userBookings"],
     queryFn: fetchUserBookings,
@@ -21,6 +25,7 @@ const MyBookingsPage = () => {
 
   const [open, setOpen] = useState(false);
   const [selectedBooking, setSelectedBooking] = useState(null);
+  const [openEditPopup, setOpenEditPopup] = useState(false);
 
   const handleOpen = (booking) => {
     setSelectedBooking(booking);
@@ -29,6 +34,21 @@ const MyBookingsPage = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await api.delete(`/bookings/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+
+      setOpenEditPopup(false);
+      queryClient.invalidateQueries(["userBookings"]);
+    } catch (error) {
+      console.error('Delete error:', error);
+    }
   };
 
   if (isLoading) return <CircularProgress />;
@@ -69,8 +89,30 @@ const MyBookingsPage = () => {
                 >
                   View Details
                 </Button>
+                <Box sx={{ display: "flex", justifyContent: "space-between", mt: 1 }}>
+                  <Button variant="outlined" onClick={() => navigate(`/bookings/${booking._id}/edit`)}>
+                    Edit
+                  </Button>
+                  <Button variant="outlined" onClick={() => setOpenEditPopup(true)} color="error">
+                    Delete
+                  </Button>
+                </Box>
               </CardContent>
             </Card>
+            <Dialog open={openEditPopup} onClose={() => setOpenEditPopup(false)}>
+              <DialogTitle>Confirm Deletion</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  Are you sure you want to delete this booking? This action cannot be undone.
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={() => setOpenEditPopup(false)}>Cancel</Button>
+                <Button onClick={()=>handleDelete(booking._id)} color="error">
+                  Delete
+                </Button>
+              </DialogActions>
+            </Dialog>
           </Grid>
         ))}
       </Grid>

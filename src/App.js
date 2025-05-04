@@ -7,11 +7,12 @@ import RegisterPage from "./pages/RegisterPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MyBookingsPage from "./pages/MyBookingsPage";
 import Header from "./components/Header";
+import EditBookingPage from "./pages/EditBookingPage";
 
 function App() {
   return (
     <Router>
-      <Header/> 
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -25,13 +26,21 @@ function App() {
           }
         />
         <Route
-            path="/my-bookings"
-            element={
-              <ProtectedRoute>
-                <MyBookingsPage />
-              </ProtectedRoute>
-            }
-          /> 
+          path="/my-bookings"
+          element={
+            <ProtectedRoute>
+              <MyBookingsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/bookings/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditBookingPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
