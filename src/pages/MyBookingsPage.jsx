@@ -56,7 +56,7 @@ const MyBookingsPage = () => {
                   <strong>Departure:</strong> {new Date(booking.flight.departure).toLocaleString()} <br />
                   <strong>Arrival:</strong> {new Date(booking.flight.arrival).toLocaleString()} <br />
                   <strong>Price:</strong> ₹{booking.flight.price} <br />
-                  <strong>Seats:</strong> {booking.seats.join(", ")} <br />
+                  <strong>Seat Numbers:</strong> {booking.seats.join(", ")} <br />
                   <strong>Booking Date:</strong> {new Date(booking.bookingDate).toLocaleString()} <br />
                 </Typography>
 
@@ -105,7 +105,7 @@ const MyBookingsPage = () => {
                 </ul>
               </Typography>
               <Typography variant="body1">
-                <strong>Seats:</strong> {selectedBooking.seats.join(", ")}
+                <strong>Seat Numbers:</strong> {selectedBooking.seats.join(", ")}
               </Typography>
               <Typography variant="body1">
                 <strong>Booking Date:</strong> {new Date(selectedBooking.bookingDate).toLocaleString()}

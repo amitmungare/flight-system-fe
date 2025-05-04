@@ -7,8 +7,6 @@ const Header = () => {
   const navigate = useNavigate();
   const { isLoggedIn, logout, user } = useAuth();
 
-  console.log("user", user);
-
   return (
     <AppBar position="sticky">
       <Toolbar>

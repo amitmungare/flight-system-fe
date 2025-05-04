@@ -1,5 +1,6 @@
 // context/AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from "react";
+import api from "../services/axios";
 
 const AuthContext = createContext();
 
@@ -23,7 +24,22 @@ export const AuthProvider = ({ children }) => {
     setUser(user);
   };
 
-  const logout = () => {
+  const logout = async () => {
+    const token = localStorage.getItem('token');
+
+    try {
+      await api.post(
+        '/auth/logout',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (err) {
+      console.error('Logout error:', err.response?.data || err.message);
+    }
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setIsLoggedIn(false);

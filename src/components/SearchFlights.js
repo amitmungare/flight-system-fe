@@ -87,6 +87,7 @@ const SearchFlights = ({ onSearchResults }) => {
               InputLabelProps={{
                 shrink: true,
               }}
+              sx={{minWidth: 160}}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
