@@ -85,8 +85,7 @@ const BookingPage = () => {
     try {
       const res = await api.post("/bookings", {
         flightId,
-        passengers,
-        seats,
+        passengers
       });
 
       setSnackbarMessage(`Booking successful! Confirmation: ${res.data.confirmationNumber}`);

@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 // Fetch user bookings
 const fetchUserBookings = async () => {
-  const response = await api.get("/bookings/my-bookings", {
+  const response = await api.get("/bookings", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
